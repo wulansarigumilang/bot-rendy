@@ -1,6 +1,6 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, filters
-from openai
+import openai
 import json
 import os  
 
@@ -152,3 +152,4 @@ if __name__ == "__main__":
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, chat))
     print("🤍 Ren standby di kantor…")
     app.run_polling()
+
