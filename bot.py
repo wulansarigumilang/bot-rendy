@@ -1,15 +1,14 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, filters
-from openai import OpenAI
+from openai
 import json
 import os  
-
-# ====== CONFIG ======
 
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-client = OpenAI(api_key=OPENAI_API_KEY)
+openai.api_key = OPENAI_API_KEY
+
 
 SYSTEM_PROMPT = """
 Kamu adalah Model GPT 5.2
@@ -122,15 +121,15 @@ async def chat(update: Update, context: ContextTypes.DEFAULT_TYPE):
     })
 
     # ===== 4️⃣ PANGGIL OPENAI =====
-    response = client.chat.completions.create(
-        model="gpt-4.1",
-        messages=messages,
-        temperature=0.55,
-        presence_penalty=0.6,
-        max_tokens=200
+    response = openai.ChatCompletion.create(
+    model="gpt-4.1",
+    messages=messages,
+    temperature=0.55,
+    presence_penalty=0.6,
+    max_tokens=200
     )
 
-    reply = response.choices[0].message.content
+    reply = response.choices[0].message["content"]
 
     # ===== 5️⃣ SIMPAN KE HISTORY =====
     context.chat_data.setdefault("history", [])
