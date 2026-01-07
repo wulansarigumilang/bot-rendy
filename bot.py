@@ -199,8 +199,9 @@ async def chat(update: Update, context: ContextTypes.DEFAULT_TYPE):
 if __name__ == "__main__":
     app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, chat))
-    print("🤍 Ren standby di kantor…")
+    print("🤍 Ngobrol sama Ren dimulai…")
     app.run_polling()
+
 
 
 
